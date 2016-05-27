@@ -25,7 +25,7 @@ body {
 .home-container {
   width: 40%;
   min-height: 600px;
-  margin: 200px auto 0 auto;
+  margin: 150px auto 0 auto;
   position: relative;
 }
 .home-container .header {
@@ -70,7 +70,7 @@ body {
 }
 .home-container .about {
   margin: 50px 0;
-  font-size: 25px;
+  font-size: 18px;
 }
 .home-container .temporary-website {
   position: absolute;
