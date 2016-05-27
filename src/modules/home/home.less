@@ -1,0 +1,101 @@
+.home-container {
+  @home-width: 40%;
+  @photo-width: 200px;
+  @photo-height: 250px;
+
+  width: @home-width;
+  min-height: 600px;
+  margin: 200px auto 0 auto;
+
+  position: relative;
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+
+    .photo {
+      width: @photo-width;
+      height: @photo-height;
+
+      background-image: url("/assets/images/sinem.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .name-nav {
+      @name-nav-padding: 15px;
+     // width: @home-width - @photo-width - @name-nav-padding * 2;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+
+      padding: @name-nav-padding;
+
+      .name {
+        .name-comp {
+          width: 350px;
+          font-size: 56px;
+        }
+
+        margin-bottom: 30px;
+      }
+
+      .nav {
+        font-size: 30px;
+        color: #27DEB5;
+
+        .first {
+          margin-right: 15px;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .about {
+    margin: 50px 0;
+    font-size: 25px;
+  }
+
+  .temporary-website {
+    position: absolute;
+    bottom: 0;
+
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: space-around;
+
+    color: #E471C9;
+    font-size: 46px;
+    font-weight: 800;
+
+    .first {
+      margin-right: 30px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    .header {
+      flex-direction: column;
+
+      .name-nav {
+        margin-left: 0;
+      }
+
+      .temporary-website {
+        flex-direction: column;
+      }
+    }
+  }
+}
