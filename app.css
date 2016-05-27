@@ -92,7 +92,7 @@ body {
   .home-container .header .name-nav {
     margin-left: 0;
   }
-  .home-container .header .temporary-website {
+  .home-container .temporary-website {
     flex-direction: column;
   }
 }
