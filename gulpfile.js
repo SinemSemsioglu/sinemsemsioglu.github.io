@@ -34,7 +34,7 @@ gulp.task("less", function () {
             "paths": [path.join(__dirname, "less", "includes")]
         }))
         .pipe(concat("app.css"))
-        .pipe(gulp.dest("dist/"));
+        .pipe(gulp.dest(""));
 });
 
 gulp.task("webserver", function () {
@@ -51,7 +51,7 @@ gulp.task("webserver", function () {
 gulp.task("scripts", function () {
     return gulp.src(libPathList.concat(sourcePathList))
         .pipe(concat("personal.js"))
-        .pipe(gulp.dest("dist/"));
+        .pipe(gulp.dest(""));
 });
 
 gulp.task("copyAssets", function () {
@@ -61,12 +61,12 @@ gulp.task("copyAssets", function () {
 
 gulp.task("copyTemplates", function () {
     return gulp.src(templatePathList)
-        .pipe(gulp.dest("dist/templates/"));
+        .pipe(gulp.dest("templates/"));
 });
 
 gulp.task("copyIndex", function () {
     return gulp.src("src/index.html")
-        .pipe(gulp.dest("dist/"));
+        .pipe(gulp.dest(""));
 });
 
 
