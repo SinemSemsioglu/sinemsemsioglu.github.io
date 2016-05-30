@@ -339,14 +339,21 @@ angular.module("personalWeb").config(function ($stateProvider, $urlRouterProvide
 });
 
 angular.module("personalWeb").controller("homeController",
-    [
-        function () {
+    ["$sce",
+        function ($sce) {
 
-            var personalText = "I studied Mathematics and Computer Science at Oberlin College," +
-                " OH, USA. Upon graduation I returned to Istanbul and I am  currently" +
-                " working at Monitise MEA, as a front end developer. I have been working " +
-                "on the mobile website of Pegasus Airlines. I also worked on the website " +
-                "of Zubizu for a little while. ";
+            var personalText = "I am a web-developer, still a recent college grad, a math enthusiast " +
+                "and an art lover. I graduated from Oberlin College with Computer Science and Mathematics " +
+                "major, then moved to Istanbul and started working at Monitise MEA (Pozitron as it used " +
+                "to be called). More information about my educational background can be found in my resume." +
+                "As for work, I have been mostly working on <a href=\"https://mobile.flypgs.com/#/checkin/search\">" +
+                "Pegasus Airlines' mobile website </a>";
+
+            var links = "Here are links to: </br>" +
+                "<a href=\"https://github.com/SinemSemsioglu\">My Github Page</a></br>" +
+                "<a href=\"https://tr.linkedin.com/in/sinemsemsioglu\">My LinkedIn Page </a>";
+
+            var explanation = "I want to emphasize that this website is temporary and will be replaced soon."
 
             this.text = {
                 navItems: {
@@ -357,7 +364,7 @@ angular.module("personalWeb").controller("homeController",
                     temporary: "TEMPORARY",
                     website: "WEBSITE"
                 },
-                about: [personalText],
+                about: [$sce.trustAsHtml(personalText), $sce.trustAsHtml(links), $sce.trustAsHtml(explanation)],
                 name: {
                     first: "Sinem",
                     last: "Semsioglu"
@@ -365,8 +372,7 @@ angular.module("personalWeb").controller("homeController",
             };
 
             this.openCv = function () {
-                console.log("ksjd");
-               window.open("assets/file/cv.pdf");
+                window.open("assets/file/cv.pdf");
             }
         }]);
 angular.module("personalWeb").controller("portfolioController",
