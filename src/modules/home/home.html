@@ -25,8 +25,8 @@
     </div>
     <div class="about">
         <div class="about-paragraph"
-             ng-repeat="paragraph in home.text.about">
-            {{paragraph}}
+             ng-repeat="paragraph in home.text.about"
+             ng-bind-html="paragraph">
         </div>
     </div>
     <div class="temporary-website">

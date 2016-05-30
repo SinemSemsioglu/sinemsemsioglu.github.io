@@ -5,7 +5,10 @@
 
   width: @home-width;
   min-height: 600px;
-  margin: 100px auto 0 auto;
+  min-width: 300px;
+  padding: 80px 0 0 0;
+
+  margin: 0 auto;
 
   position: relative;
 
@@ -63,11 +66,15 @@
   .about {
     margin: 50px 0;
     font-size: 18px;
+
+    .about-paragraph {
+      margin-bottom: 20px;
+    }
   }
 
   .temporary-website {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 100px;
 
     margin-top: 50px;
 
@@ -86,6 +93,8 @@
 
 @media (max-width: 1024px) {
   .home-container {
+    width: 70%;
+
     .header {
       flex-direction: column;
 
@@ -96,6 +105,7 @@
 
     .temporary-website {
       flex-direction: column;
+      bottom: 20px;
     }
   }
 }
