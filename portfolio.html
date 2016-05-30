@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="personalWeb">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sinem Semsioglu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <script src="assets/processing/processing.js" type="text/javascript"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="personal.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="main-container" ui-view="appContainer">
+    <div class="portfolio-container">
+        <div class="portfolio-items">
+            <canvas data-processing-sources="/assets/processing/shm/shm.pde">
+
+            </canvas>
+        </div>
+    </div>
+</div>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
+</body>
+</html>
