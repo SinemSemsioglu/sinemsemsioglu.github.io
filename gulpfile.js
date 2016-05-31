@@ -70,7 +70,7 @@ gulp.task("copyIndex", function () {
 });
 
 
-gulp.task("build-dev", ["less", "copyAssets", "copyTemplates", "scripts", "copyIndex"]);
+gulp.task("build-dev", ["less", "copyTemplates", "scripts", "copyIndex"]);
 
 
 gulp.task("watch", function () {
