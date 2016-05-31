@@ -16,9 +16,16 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="main-container">
+<div id="main-container">
     <div class="header">
-        Sinem Semsioglu | Portfolio
+        <span id="name">
+            Sinem Semsioglu
+        </span>
+        | Portfolio
+    </div>
+    <div class="browser-warning">
+        SORRY BUT THIS PAGE IS NOT MEANT TO BE VIEWED ON SCREENS NARROWER
+        THAN 700PX :(
     </div>
     <div class="portfolio-container">
         <div class="portfolio-items">
@@ -45,35 +52,114 @@
         </div>
         <div id="sketch-container">
             <canvas id="sketch"
-                    data-processing-sources="shatter.pde">
+                    data-processing-sources="">
 
             </canvas>
+            <div id="placeholder">
+                A while ago, I started learning Processing. On its
+                <a href="https://processing.org/">official website</a>, it is
+                defined as "Processing is a flexible software sketchbook and a language for
+                learning how to code within the context of the visual arts". As
+                a result I produced some 'sketches'. You can see and interact with
+                them by clicking the images above. The source code can be found
+                <a href="https://github.com/SinemSemsioglu/processingCodes">here</a>.
+            </div>
+        </div>
+
+        <div id="sketch-explanation">
+            <div class="interaction">
+                To interact with the 'sketches', first click on the sketch and then press
+                up and down keys.
+            </div>
+
+            <div id="shatter-info">
+                In this sketch, to return to the original composition, press down key.
+            </div>
+
+            <div class="portfolio">
+                To return to the text displayed before, you can simply click anywhere on the
+                page besides the sketch, images and my name.
+            </div>
         </div>
     </div>
 </div>
-<!-- In production use:
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
--->
 <script>
-    var sourcePath = "shm.pde";
-    var sketchElement = document.getElementById("sketch");
+    var sketchElement, placeholderElement, containerElement, nameElement, infoElement;
+
+    getElementsSetEvents();
     resolveSketchName();
 
-    var sketchNames = ["waves", "shm", "rotation", "shatter", "mover"];
-
-    sketchNames.forEach(function (name) {
-        console.log(name);
-        var element = document.getElementById(name);
-        element.addEventListener("click", function () {
-            reloadPageWithHash(name);
-        });
-    });
 
     function resolveSketchName() {
         var location = window.location;
         var hash = location.hash;
         var sketchName = hash.slice(2);
-        setSource(sketchName);
+        if (sketchName) {
+            setSource(sketchName);
+            if (sketchName === "shatter") {
+               // setTimeout(function () {
+                var shatterInfoElement = document.getElementById("shatter-info");
+                    shatterInfoElement.style.display = "block";
+                //}, 10);
+            }
+            sketchOnDisplay();
+        } else {
+            noSketchOnDisplay();
+        }
+    }
+
+    function setGeneralEvents() {
+        setClickEvent(containerElement, function () {
+            reloadPageWithHash("");
+        });
+
+        setClickEvent(sketchElement, function (event) {
+            event.stopPropagation();
+        });
+
+        setClickEvent(nameElement, function (event) {
+            event.stopPropagation();
+            window.location = "/";
+        });
+    }
+
+    function setSketchEvents() {
+        var sketchNames = ["waves", "shm", "rotation", "mover", "shatter"];
+
+        sketchNames.forEach(function (name) {
+            var element = document.getElementById(name);
+            setClickEvent(element, function (event) {
+                event.stopPropagation();
+                reloadPageWithHash(name);
+            });
+        });
+    }
+
+    function setClickEvent(element, func) {
+        element.addEventListener("click", func);
+    }
+
+    function getElementsSetEvents() {
+        sketchElement = document.getElementById("sketch");
+        placeholderElement = document.getElementById("placeholder");
+        containerElement = document.getElementById("main-container");
+        nameElement = document.getElementById("name");
+        infoElement = document.getElementById("sketch-explanation");
+
+        setGeneralEvents();
+        setSketchEvents();
+    }
+
+    function sketchOnDisplay() {
+        placeholderElement.style.display = "none";
+        sketchElement.style.display = "block";
+        infoElement.style.display = "block";
+    }
+
+    function noSketchOnDisplay() {
+        placeholderElement.style.display = "block";
+        sketchElement.style.display = "none";
+        infoElement.style.display = "none";
     }
 
     function reloadPageWithHash(name) {
