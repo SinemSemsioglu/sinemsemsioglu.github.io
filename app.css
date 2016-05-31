@@ -32,6 +32,7 @@ body {
   position: relative;
 }
 .home-container .header {
+  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -52,6 +53,7 @@ body {
   max-width: 300px;
   display: flex;
   flex-direction: column;
+  text-align: left;
   padding: 15px;
 }
 .home-container .header .name-nav .name {
