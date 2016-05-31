@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="app.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <script src="/assets/processing/processing.js" type="text/javascript"></script>
+    <script src="/assets/file/processing.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -22,15 +22,19 @@
     </div>
     <div class="portfolio-container">
         <div class="portfolio-items">
+            <div id="rotation"
+                 class="portfolio-item">
+
+            </div>
+            <div id="mover"
+                 class="portfolio-item">
+
+            </div>
             <div id="shm"
                  class="portfolio-item">
 
             </div>
             <div id="waves"
-                 class="portfolio-item">
-
-            </div>
-            <div id="rotation"
                  class="portfolio-item">
 
             </div>
@@ -55,7 +59,7 @@
     var sketchElement = document.getElementById("sketch");
     resolveSketchName();
 
-    var sketchNames = ["waves", "shm", "rotation", "shatter"];
+    var sketchNames = ["waves", "shm", "rotation", "shatter", "mover"];
 
     sketchNames.forEach(function (name) {
         console.log(name);

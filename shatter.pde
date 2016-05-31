@@ -1,3 +1,9 @@
+// Sinem Semsioglu
+// modified from
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
 import java.util.*;
 
 ArrayList<ParticleSystem> ticles;
@@ -7,7 +13,7 @@ void setup(){
   size(500,500);
   ticles = new ArrayList<ParticleSystem>();
   num = 5;
-  x_offset = 50;
+  int x_offset = 50;
   for(int i=0; i<num; i++){
    ticles.add(new ParticleSystem(new PVector(x_offset+40+(80*i),height/2), 40)); 
   }
@@ -15,22 +21,26 @@ void setup(){
 
 void draw(){
   back();
+  Iterator<ParticleSystem> ittit = ticles.iterator();
   //iterates through particle systems to display
-  for(ParticleSystem p: ticles){
-    //checks if the object is shattered (clicked on)
-    if(p.shattered){
-     p.run();
-   }else p.display();
+  while(ittit.hasNext()){
+    ParticleSystem p = ittit.next();
+    if(p.isDead()) ittit.remove();
+    else{
+      //checks if the object is shattered (clicked on)
+      if(p.shattered){
+         p.run();
+      }else p.display();
+   }
   }
-  
 }
 
 //for shattering
 void mouseClicked(){
  for(ParticleSystem p: ticles){
   if(p.clicked(mouseX,mouseY)){
+    if(!p.shattered) p.shatter();
     p.shattered = true;
-    p.shatter();
   }
  }
 }
@@ -39,7 +49,7 @@ void mouseClicked(){
 void keyPressed(){
   if(keyCode == DOWN){
     ticles = new ArrayList<ParticleSystem>();
-    x_offset = 50;
+    int x_offset = 50;
     for(int i=0; i<num; i++){
      ticles.add(new ParticleSystem(new PVector(x_offset+40+(80*i),height/2), 40)); 
     }
@@ -54,6 +64,11 @@ void back(){
  rect(0,0,width,height/4);
  rect(0,height*3/4,width,height);
 }
+// Sinem Semsioglu
+// modified from
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
 
 class Particle {
   
@@ -95,6 +110,7 @@ class Particle {
     noStroke();
     rectMode(CENTER);
     fill(200,100,50,lifespan);
+  //  fill(200, 50, 200, lifespan);
     rect(location.x,location.y,mass,mass);
   }
   
@@ -115,6 +131,12 @@ class Particle {
      }else return false;
   }
 }
+// Sinem Semsioglu
+// modified from
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
 class ParticleSystem {
  ArrayList<Particle> particles;
  PVector origin;
@@ -184,5 +206,18 @@ boolean clicked(int mx, int my) {
     m+=moverMass*moverMass;
   }
  }
+ 
+ boolean isDead(){
+   boolean check = true;
+    if(particles.isEmpty())return false;
+    else{
+      for(Particle p:  particles){
+        check = check && p.isDead(); 
+      }
+    }
+    return check;
+ }
+ 
+
 }
 

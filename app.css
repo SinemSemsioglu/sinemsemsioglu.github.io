@@ -181,11 +181,17 @@ body {
   justify-content: space-between;
 }
 .portfolio-container .portfolio-items .portfolio-item {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 .portfolio-container .portfolio-items #shm {
   background-image: url("../../assets/images/shm.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.portfolio-container .portfolio-items #waves {
+  background-image: url("../../assets/images/waves.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -198,6 +204,12 @@ body {
 }
 .portfolio-container .portfolio-items #shatter {
   background-image: url("../../assets/images/shatter.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.portfolio-container .portfolio-items #mover {
+  background-image: url("../../assets/images/mover.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
