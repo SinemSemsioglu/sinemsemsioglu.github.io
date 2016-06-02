@@ -1,7 +1,7 @@
 .home-container {
   @home-width: 40%;
-  @photo-width: 180px;
-  @photo-height: 200px;
+  @photo-width: 160px;
+  @photo-height: 180px;
 
   width: @home-width;
   min-height: 600px;
@@ -17,13 +17,11 @@
     display: flex;
     align-items: center;
 
-    @media screen and (max-width: 1024px) {
-      flex-direction: column;
-    }
-
     .photo {
       width: @photo-width;
       height: @photo-height;
+
+      margin-top: 20px;
 
       background-image: url("/assets/images/sinem.png");
       background-position: center;
@@ -40,7 +38,7 @@
 
       text-align: left;
 
-      padding: @name-nav-padding;
+      padding: 0 @name-nav-padding;
 
       .name {
         .name-comp {
@@ -67,7 +65,7 @@
   }
 
   .about {
-    margin: 50px 0 100px 0;
+    margin: 30px 0 100px 0;
     font-size: 18px;
 
     .about-paragraph {
