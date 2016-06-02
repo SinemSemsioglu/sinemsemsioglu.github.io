@@ -353,8 +353,6 @@ angular.module("personalWeb").controller("homeController",
                 "<a href=\"https://github.com/SinemSemsioglu\">My Github Page</a></br>" +
                 "<a href=\"https://tr.linkedin.com/in/sinemsemsioglu\">My LinkedIn Page </a>";
 
-            var explanation = "I want to emphasize that this website is temporary and will be replaced soon."
-
             this.text = {
                 navItems: {
                     portfolio: "Portfolio",
@@ -364,7 +362,7 @@ angular.module("personalWeb").controller("homeController",
                     temporary: "TEMPORARY",
                     website: "WEBSITE"
                 },
-                about: [$sce.trustAsHtml(personalText), $sce.trustAsHtml(links), $sce.trustAsHtml(explanation)],
+                about: [$sce.trustAsHtml(personalText), $sce.trustAsHtml(links)],
                 name: {
                     first: "Sinem",
                     last: "Semsioglu"
