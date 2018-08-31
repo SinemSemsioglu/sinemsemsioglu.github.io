@@ -1,0 +1,224 @@
+html {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #120201;
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+a {
+  color: #83C2FF;
+  text-decoration: none;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+p {
+  font-size: 14px;
+  text-align: justify;
+}
+/*.side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+}*/
+.sinem {
+  background-image: url("assets/images/sinem.png");
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  background-position: center;
+}
+.main-container .header {
+  margin-bottom: 30px;
+  font-size: 40px;
+  width: 100%;
+  border-bottom: 1px dotted #120201;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.main-container .header .links {
+  display: flex;
+  align-items: center;
+  width: 120px;
+  justify-content: space-between;
+}
+.main-container .header .links .octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+.main-container .header .links .github-icon {
+  height: 30px;
+  width: 30px;
+}
+.main-container .header .links .linkedin-icon {
+  height: 35px;
+  width: 35px;
+}
+.main-container .header .links .menu-icon {
+  height: 30px;
+  width: 30px;
+  display: none;
+}
+.main-container .main-content {
+  padding: 20px;
+  display: flex;
+}
+.main-container .main-content .side-nav {
+  flex: 1 1 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+.main-container .main-content .side-nav .nav-item {
+  font-weight: 800;
+}
+.main-container .main-content .triptych-middle-content {
+  flex: 1 1 500px;
+}
+.main-container .main-content .triptych-right-content {
+  flex: 1 1 300px;
+}
+.main-container.diptych {
+  /*.side-nav {
+            width: 250px;
+        }*/
+}
+.main-container.diptych .main-content {
+  justify-content: flex-start;
+}
+.main-container.diptych .diptych-content {
+  flex: 1 1 800px;
+}
+.main-container.triptych .main-content {
+  justify-content: space-between;
+}
+#overlay {
+  position: fixed;
+  /* Sit on top of the page content */
+  display: none;
+  /* Hidden by default */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+}
+.overlay-content {
+  position: fixed;
+  /* Sit on top of the page content */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.overlay-content .overlay-item-container {
+  width: 100%;
+  height: 100%;
+}
+.overlay-content .overlay-item-container .overlay-image {
+  width: 500px;
+  height: 500px;
+  margin: 50px auto;
+  display: none;
+}
+.overlay-content .overlay-item-container .overlay-video,
+.overlay-content .overlay-item-container .overlay-sketch {
+  display: none;
+  height: 80%;
+  margin: 40px auto 0;
+}
+.overlay-content .overlay-desc {
+  width: 500px;
+  color: white;
+}
+.mobile-screen {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-screen {
+    display: block;
+  }
+  .main-container .header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    width: 100%;
+    border-bottom: 1px solid #120201;
+    padding: 10px;
+  }
+  .main-container .header .links .linkedin-icon {
+    height: 35px;
+    width: 35px;
+  }
+  .main-container .header .links .menu-icon {
+    display: block;
+  }
+  .main-container.triptych .main-content {
+    justify-content: flex-start;
+  }
+  .main-container.triptych .triptych-right-content {
+    display: none;
+  }
+  .main-container.diptych .diptych-content {
+    flex: 1 1 500px;
+  }
+  .main-container .main-content {
+    padding: 10px;
+  }
+  .main-container .main-content .side-image {
+    display: none;
+  }
+  .main-container .main-content .side-nav {
+    transition: 0.5s ease;
+  }
+  .main-container .main-content .side-nav.mobile-menu-hidden {
+    width: 0px;
+    opacity: 0;
+    overflow: hidden;
+    flex: 0 1 auto;
+  }
+}
+.tab-selection .selection {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.tab-selection .selection.tab-active {
+  color: #83C2FF;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.tab-active {
+  display: block;
+}

@@ -1,0 +1,282 @@
+@sinem-black: #120201;
+@blue:#83C2FF;
+@dark-grey: #444444;
+@grey: #888888;
+
+html {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: @sinem-black;
+  margin:0;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+a {
+    color: @blue;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 14px;
+    text-align: justify;
+}
+
+/*.side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+}*/
+.sinem {
+    background-image: url("./assets/images/sinem.png");
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.main-container {
+    //width: 100vw;
+    //height: 100vh;
+    
+
+    .header {
+            //margin-bottom: 60px;
+            margin-bottom: 30px;
+            font-size: 40px;
+            width: 100%;
+            border-bottom: 1px dotted @sinem-black;
+            padding: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .links {
+                display: flex;
+                align-items: center;
+                width: 120px;
+                justify-content: space-between;
+
+                .octicon {
+                    display: inline-block;
+                    vertical-align: text-top;
+                    fill: currentColor;
+                }
+
+                .github-icon {
+                    height: 30px;
+                    width: 30px;
+                }
+
+                .linkedin-icon {
+                    height: 35px;
+                    width: 35px;
+                }
+
+                .menu-icon {
+                    height: 30px;
+                    width: 30px;
+                    display: none;
+                }
+            }
+            
+    }
+
+    .main-content {
+        padding: 20px;
+        display: flex;
+       // height: 80%;
+
+        .side-nav {
+            //width: 20%;  
+            flex: 1 1 40px;
+            a {
+                color: @sinem-black;
+            }
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            //max-height: 250px;
+            height: 250px;
+
+            .nav-item {
+                font-weight: 800;
+            }
+        }
+
+        .triptych-middle-content {
+            flex: 1 1 500px;
+        }
+
+        .triptych-right-content {
+            flex: 1 1 300px;
+        }
+    }
+
+     &.diptych {
+        .main-content {
+            justify-content: flex-start;
+        }
+
+        .diptych-content {
+            flex: 1 1 800px;
+        }
+
+        /*.side-nav {
+            width: 250px;
+        }*/
+    }
+
+    &.triptych {
+        .main-content {
+            justify-content: space-between;
+        }
+    }
+    
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.overlay-content {
+
+    position: fixed; /* Sit on top of the page content */
+   
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .overlay-item-container {
+        width: 100%;
+        height: 100%;
+        .overlay-image {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+
+            display: none;
+        }
+
+        .overlay-video, .overlay-sketch {
+            display: none;
+
+            height: 80%;
+            margin: 40px auto 0;
+        }
+
+
+    }
+
+    .overlay-desc {
+        width: 500px;
+        color: white;
+    }
+}
+
+
+.mobile-screen {
+    display: none;
+} 
+
+@media (max-width: 768px) { 
+    .mobile-screen {
+        display: block;
+    }
+
+    .main-container {
+        .header {
+            margin-bottom: 20px;
+            font-size: 24px;
+            width: 100%;
+            border-bottom: 1px solid @sinem-black;
+            padding: 10px;
+
+            .links {
+                .linkedin-icon {
+                    height: 35px;
+                    width: 35px;
+                }
+
+                .menu-icon {
+                    display: block;
+                }
+            }
+
+        }  
+
+        &.triptych {
+            .main-content{
+                justify-content: flex-start;
+            }
+
+            .triptych-right-content {
+                //flex: 0 1 auto;
+                display:none;
+            }
+            
+        }
+
+        &.diptych {
+            .diptych-content {
+                flex: 1 1 500px;
+            }
+        }
+
+        .main-content {
+            padding: 10px;
+            .side-image {
+                display: none;
+            }
+
+            .side-nav {
+                transition: 0.5s ease;
+
+                &.mobile-menu-hidden {
+                    width: 0px;
+                    opacity: 0;
+                    overflow: hidden;
+                    flex: 0 1 auto;
+                }
+            }
+
+           
+        }
+    }
+}
