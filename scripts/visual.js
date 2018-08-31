@@ -9,7 +9,9 @@ function makeOverlayVisible() {
     overlayElement.style.display = "block";
 
     setClickEvent(overlayElement, function() {
-        reloadPageWithHash("");
+        //reloadPageWithHash("");
+        resetOverlay();
+        overlayElement.style.display = "none";
     })
 }
 
@@ -45,6 +47,13 @@ function setPortfolioItemClickEvents() {
             setOverlayHandmadeItem(item.getElementsByTagName("img")[0].src);
         });
     });
+}
+
+function resetOverlay (){
+    var overlayImageItem = document.getElementsByClassName("overlay-image")[0];
+    overlayImageItem.style.display = "none";
+    var overlayVideoItem = document.getElementsByClassName("overlay-video")[0];
+    overlayVideoItem.style.display = "none";
 }
 
 function setOverlayHandmadeItem(src) {
