@@ -1,0 +1,29 @@
+.projects .title {
+  font-weight: 600;
+  font-size: 20px;
+}
+.projects .sub-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+.projects .sub-sub-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.holo-content {
+  padding: 20px 0 0 30px ;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.holo-content .holo-item {
+  max-width: 100%;
+}
+.holo-content .holo-item.large {
+  grid-column-end: span 2;
+}
+@media (max-width: 768px) {
+  .holo-content {
+    padding: 0;
+  }
+}
